@@ -28,7 +28,7 @@ const ListContainer = styled.div`
 export default function GameList() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  let idx = 0;
   useEffect(() => {
     const getData = async () => {
       await setLoading(true);
@@ -64,8 +64,8 @@ export default function GameList() {
       ) : (
         <ListContainer>
           <List component="nav" aria-label="main mailbox folders">
-            {games.map((game, idx) => {
-              console.log(idx);
+            {games.map((game) => {
+              idx++;
               return (
                 <ListElement key={`gamesli_idx`} game={game} index={idx} />
               );

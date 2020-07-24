@@ -11,14 +11,16 @@ const LiContainer = styled.div`
   }
 `;
 
-export default function ListElement({ game, index }) {
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
+export default function ListElement({ game }) {
   return (
     <LiContainer>
-      <ListItem key={`evt_${index}`} button>
-        <a href={`/event/${game.id}`}>
-          <ListItemText primary={game.name} />
-        </a>
-      </ListItem>
+      <ListItemLink href={`/event/${game.id}`} button>
+        <ListItemText primary={game.name} />
+      </ListItemLink>
     </LiContainer>
   );
 }
